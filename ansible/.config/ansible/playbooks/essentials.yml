@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Install tools
+    package: name={{item}} state=latest
+      with_items:
+        - git
+        - stow
+        - tmux
+        - vim
+        - sakura
+        - feh
+        - fonts-font-awesome
