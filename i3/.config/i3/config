@@ -164,9 +164,9 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # set sound keys - get key code using `xev`
-bindcode 121 exec pactl set-sink-volume 0 0%
-bindcode 122 exec pactl set-sink-volume 0 -10%
-bindcode 123 exec pactl set-sink-volume 0 +10%
+bindcode 121 exec pactl set-sink-volume 2 0%
+bindcode 122 exec pactl set-sink-volume 2 -10%
+bindcode 123 exec pactl set-sink-volume 2 +10%
 
 # set screenshot key 
 bindcode --release 107 exec --no-startup-id import $HOME/Pictures/$(date +%F_%H-%M-%S).png
