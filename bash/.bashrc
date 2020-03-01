@@ -100,7 +100,7 @@ export PATH=$HOME/.pyenv/bin:$HOME/.local/bin:$PATH
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 export WORKON_HOME=~/Envs
-source ~/.local/bin/virtualenvwrapper.sh
+source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 
 # docker
 export DOCKER_BUILDKIT=1
