@@ -113,5 +113,5 @@ set colorcolumn=120
 set pastetoggle=<F2>
 
 "Show whitespaces
-:set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
-:set list
+":set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
+":set list
