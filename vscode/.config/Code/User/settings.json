@@ -1,0 +1,52 @@
+{
+    "telemetry.enableTelemetry": false,
+    "code-runner.customCommand": "python -m unittest",
+    "code-runner.clearPreviousOutput": true,
+    "editor.tabSize": 2,
+    "editor.minimap.enabled": true,
+    "editor.renderWhitespace": "all",
+    "editor.renderControlCharacters": false,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "gitlens.hovers.currentLine.over": "line",
+    "pythonTestExplorer.testFramework": "pytest",
+    "python.pythonPath": "/usr/bin/python3",
+    "python.testing.pytestEnabled": true,
+    "python.testing.unittestArgs": [
+        "-v",
+        "-s",
+        ".",
+        "-p",
+        "*test*.py"
+    ],
+    "python.venvFolders": [
+        ".pyenv",
+        "${workspaceFolder}/venv",
+        "${workspaceFolder}/.venv"
+    ],
+    "launch": {
+        "configurations": [
+            {
+                "name": "Pytest base",
+                "type": "python",
+                "request": "launch",
+                "stopOnEntry": false,
+                "pythonPath": "${config:python.pythonPath}",
+                "module": "pytest",
+                "args": [
+                    "-s",
+                    "${workspaceFolder}/"
+                ],
+                // "program": "${workspaceFolder}/tests/test_.py"
+            },
+        ],
+    },
+    "terminal.integrated.rendererType": "dom",
+    "window.zoomLevel": -1,
+    "window.menuBarVisibility": "default",
+    "window.titleBarStyle": "custom",
+    "workbench.colorTheme": "Monokai Dimmed",
+    "workbench.activityBar.visible": true,
+    "workbench.statusBar.visible": true,
+    "workbench.iconTheme": "material-icon-theme",
+}
