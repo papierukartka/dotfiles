@@ -169,6 +169,11 @@ bindcode 121 exec pactl set-sink-volume 0 0%
 bindcode 122 exec pactl set-sink-volume 0 -10%
 bindcode 123 exec pactl set-sink-volume 0 +10%
 
+# set brightness keys 
+# https://askubuntu.com/questions/715306/xbacklight-no-outputs-have-backlight-property-no-sys-class-backlight-folder
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10;
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10;
+
 # set screenshot key 
 bindcode --release 107 exec --no-startup-id import $HOME/Pictures/$(date +%F_%H-%M-%S).png
 
