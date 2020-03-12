@@ -2,7 +2,7 @@
     "telemetry.enableTelemetry": false,
     "code-runner.customCommand": "python -m unittest",
     "code-runner.clearPreviousOutput": true,
-    "editor.tabSize": 2,
+    "editor.tabSize": 4,
     "editor.minimap.enabled": true,
     "editor.renderWhitespace": "all",
     "editor.renderControlCharacters": false,
