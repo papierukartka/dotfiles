@@ -1,0 +1,24 @@
+# man systemd.service
+# man systemd.exec
+# man systemd.syntax
+# systemd-delta = systemctl status for whole system
+# https://wiki.archlinux.org/index.php/Systemd/User#Service_example
+# systemctl --user edit template --full
+# systemctl --user daemon-reload template
+# systemctl --user restart template
+[Unit]
+Description='Template for a service with common options'
+# require networking online to run this
+After=network-online.target
+
+[Service]
+ExecStart=/home/kks/.config/systemd/user/endless.py
+# reboot this on fail
+Restart=always
+WorkingDirectory=/home/kks/.config/systemd/user
+Environment=PYENV_SHELL=bash
+# EnvironmentFile=
+
+[Install]
+# multi-user handles services for all users on boot (start this on boot)
+# WantedBy=multi-user.target
