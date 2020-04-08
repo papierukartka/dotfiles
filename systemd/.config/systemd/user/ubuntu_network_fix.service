@@ -1,0 +1,14 @@
+# /etc/systemd/system/networkfix.service
+[Unit]
+Description='Stackoverflow-approved way of fixing LAN network on ubuntu server'
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/sbin/dhclient -v -4
+RemainAfterExit=true
+StandardOutput=journal
+
+[Install]
+WantedBy=multi-user.target
+
