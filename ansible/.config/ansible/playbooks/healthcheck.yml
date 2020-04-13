@@ -1,0 +1,7 @@
+# ansible localhost -m setup
+---
+- hosts: localhost
+  tasks:
+    - name: Check connection
+      debug:
+        msg: "Hello {{ ansible_user_id }}. I see you live under {{ ansible_env.HOME }}."
