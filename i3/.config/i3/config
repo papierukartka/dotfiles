@@ -188,7 +188,6 @@ bindcode --release 210 exec x-www-browser "https://www.netflix.com/browse"
 bindcode --release 156 exec systemctl poweroff
 
 # lock screen
-# bindsym $mod+l i3lock -t -i ~/Pictures/screenlock.png
 bindsym $mod+l exec --no-startup-id i3lock -t -i ~/Pictures/screenlock.png
 
 # Start i3bar. configuration: ~/.i3status.conf, https://wiki.archlinux.org/index.php/I3#i3bar
