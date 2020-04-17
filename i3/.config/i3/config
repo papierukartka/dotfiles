@@ -177,16 +177,20 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 10;
 # set screenshot key 
 bindcode --release 107 exec --no-startup-id import $HOME/Pictures/$(date +%F_%H-%M-%S).png
 
+# netflix. what?
 bindcode --release 210 exec x-www-browser "https://www.netflix.com/browse"
 
+# suspend with the little one
 bindcode --release 156 exec $(i3lock -t -i ~/Pictures/screenlock.png && systemctl suspend)
-# Start i3bar to display a workspace bar 
-# configuration: ~/.i3status.conf
-# https://wiki.archlinux.org/index.php/I3#i3bar
+
+# Start i3bar. configuration: ~/.i3status.conf, https://wiki.archlinux.org/index.php/I3#i3bar
 bar {
         font pango:FontAwesome Regular 10
         status_command i3status
 }
+
+# touchpad turnoff
+bindcode --release 199 exec ~/.config/i3/scripts/touchpad
 
 # set desktop background
 exec_always feh --bg-scale ~/Pictures/sea_boat_top_view_128638_1366x768.jpg
