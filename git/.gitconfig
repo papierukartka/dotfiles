@@ -1,0 +1,7 @@
+[user]
+	name = Ś, Krzysztof
+	email = papierukartka@gmail.com
+[color]
+	ui = true
+[push]
+	default = matching
