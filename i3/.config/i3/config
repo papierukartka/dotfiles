@@ -200,6 +200,6 @@ bar {
 bindcode --release 199 exec ~/.config/i3/scripts/touchpad
 
 # set desktop background
-exec_always feh --bg-scale ~/Pictures/sea_boat_top_view_128638_1366x768.jpg
+exec_always feh --no-fehbg --bg-scale ~/Pictures/sea_boat_top_view_128638_1366x768.jpg
 exec_always guake --hide
 exec_always sct 3500
