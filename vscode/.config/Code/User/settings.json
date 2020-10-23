@@ -31,7 +31,7 @@
                 "type": "python",
                 "request": "launch",
                 "stopOnEntry": false,
-                "pythonPath": "${config:python.pythonPath}",
+                "pythonPath": "${python.pythonPath}",
                 "module": "pytest",
                 "args": [
                     "-s",
@@ -45,7 +45,7 @@
     "window.zoomLevel": -1,
     "window.menuBarVisibility": "default",
     "window.titleBarStyle": "custom",
-    "workbench.colorTheme": "Monokai Dimmed",
+    "workbench.colorTheme": "Monokai",
     "workbench.activityBar.visible": true,
     "workbench.statusBar.visible": true,
     "workbench.iconTheme": "material-icon-theme",
