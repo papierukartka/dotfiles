@@ -5,6 +5,7 @@ set nocompatible                  " Use Vim settings, rather than Vi settings (m
 
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
+Plug 'pearofducks/ansible-vim'
 call plug#end()
 set showcmd                       " Display incomplete commands.
 
