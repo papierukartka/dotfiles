@@ -50,7 +50,7 @@ set undofile                      " Create undo file on editing
 " UNCOMMENT TO USE
 "set tabstop=2                    " Global tab width.
 "set shiftwidth=2                 " And again, related.
-"set expandtab                    " Use spaces instead of tabs
+set expandtab                    " Use spaces instead of tabs
 "set colorcolumn=120              " Draw margin at line 120
 
 " Show tabs, newline characters, etc
