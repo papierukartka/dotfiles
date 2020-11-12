@@ -1,12 +1,18 @@
 " Hello.
-" Last change:  2020 Nov 11
+" Last change:  2020 Nov 12
 
 set nocompatible                  " Use Vim settings, rather than Vi settings (must be first) 
 
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'pearofducks/ansible-vim'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'flazz/vim-colorschemes'
+Plug 'Chiel92/vim-autoformat'     " requires formatters installed and pynvim in neovim
 call plug#end()
+
+colorscheme moonshine
+
 set showcmd                       " Display incomplete commands.
 
 set showmode                      " Display the mode you're in.
@@ -96,3 +102,12 @@ if !exists(":DiffOrig")
 		  \ | wincmd p | diffthis
 endif
 
+" set custom indent colors & map F4 to show indents
+let g:indent_guides_auto_colors = 0
+nnoremap <F4> :IndentGuidesToggle<CR>
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+
+" alternatively, paste this to colorscheme file
+"hi IndentGuidesOdd  guibg=red   ctermbg=3
+"hi IndentGuidesEven guibg=green ctermbg=4
