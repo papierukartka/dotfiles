@@ -47,9 +47,9 @@ set undofile                      " Create undo file on editing
 "set expandtab                    " Use spaces instead of tabs
 "set colorcolumn=120              " Draw margin at line 120
 
-" Show tabs, spaces, newline characters, etc
-":set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
-":set list
+" Show tabs, newline characters, etc
+:set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:< " ,space:␣
+nnoremap <F5> :set list!<CR>
 
 set laststatus=2                  " Show the status line all the time
 " Useful status information at bottom of screen
