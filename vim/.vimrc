@@ -1,5 +1,5 @@
 " Hello.
-" Last change:  2020 Nov 12
+" Last change:  2020 Nov 13
 
 set nocompatible                  " Use Vim settings, rather than Vi settings (must be first) 
 
@@ -9,6 +9,9 @@ Plug 'pearofducks/ansible-vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'flazz/vim-colorschemes'
 Plug 'Chiel92/vim-autoformat'     " requires formatters installed and pynvim in neovim
+Plug 'davidhalter/jedi-vim'
+Plug 'tmhedberg/SimpylFold'
+Plug 'Konfekt/FastFold'
 call plug#end()
 
 colorscheme moonshine
