@@ -120,3 +120,20 @@ nnoremap <space> za
 
 let g:SimpylFold_docstring_preview=1 " docstrings for folded code
 
+" plugin for separate file per extension https://vim.fandom.com/wiki/Keep_your_vimrc_file_clean
+" recommended indent plugin Plugin 'vim-scripts/indentpython.vim'
+" recommended plugin Bundle 'Valloric/YouCompleteMe'
+set encoding=utf-8
+au BufNewFile,BufRead *.py           " set formatting for python code
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
+
+au BufNewFile,BufRead *.js, *.html, *.css " set formatting for frontend code
+    \ set tabstop=2
+    \ set softtabstop=2
+    \ set shiftwidth=2
