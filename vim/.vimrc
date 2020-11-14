@@ -114,3 +114,9 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 " alternatively, paste this to colorscheme file
 "hi IndentGuidesOdd  guibg=red   ctermbg=3
 "hi IndentGuidesEven guibg=green ctermbg=4
+
+" Enable folding with the spacebar
+nnoremap <space> za
+
+let g:SimpylFold_docstring_preview=1 " docstrings for folded code
+
