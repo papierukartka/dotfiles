@@ -10,6 +10,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'flazz/vim-colorschemes'
 "Plug 'Chiel92/vim-autoformat'     " requires formatters installed and pynvim in neovim
 Plug 'vim-syntastic/syntastic'     " TODO: for some reason it clashes with colorschemes
+"Plug 'nvie/vim-flake8'  " use with F7
 Plug 'davidhalter/jedi-vim'
 Plug 'tmhedberg/SimpylFold'
 Plug 'Konfekt/FastFold'
