@@ -55,7 +55,7 @@ set undofile                      " Create undo file on editing
 " UNCOMMENT TO USE
 "set tabstop=2                    " Global tab width.
 "set shiftwidth=2                 " And again, related.
-set expandtab                    " Use spaces instead of tabs
+set expandtab                     " Use spaces instead of tabs
 "set colorcolumn=120              " Draw margin at line 120
 
 " Show tabs, newline characters, etc
@@ -141,7 +141,7 @@ au BufNewFile,BufRead *.js, *.html, *.css " set formatting for frontend code
     \ set shiftwidth=2
 
 "python with virtualenv support
-"py << EOF
+"py3 << EOF
 "import os
 "import sys
 "if 'VIRTUAL_ENV' in os.environ:
@@ -160,3 +160,8 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['python']  " :help syntastic-checkers
+
+
+
+" HELP SECTION
+" set ai! to toggle autoindent, useful when pasting from clipboard
