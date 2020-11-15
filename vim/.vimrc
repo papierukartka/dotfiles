@@ -8,7 +8,8 @@ Plug 'tpope/vim-sensible'
 Plug 'pearofducks/ansible-vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'flazz/vim-colorschemes'
-Plug 'Chiel92/vim-autoformat'     " requires formatters installed and pynvim in neovim
+"Plug 'Chiel92/vim-autoformat'     " requires formatters installed and pynvim in neovim
+Plug 'vim-syntastic/syntastic'     " TODO: for some reason it clashes with colorschemes
 Plug 'davidhalter/jedi-vim'
 Plug 'tmhedberg/SimpylFold'
 Plug 'Konfekt/FastFold'
@@ -147,3 +148,14 @@ au BufNewFile,BufRead *.js, *.html, *.css " set formatting for frontend code
 "  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
 "  execfile(activate_this, dict(__file__=activate_this))
 "EOF
+
+" vim-syntastic options, edit after reading :help syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers = ['python']  " :help syntastic-checkers
