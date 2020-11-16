@@ -15,6 +15,9 @@ Plug 'davidhalter/jedi-vim'
 Plug 'tmhedberg/SimpylFold'
 Plug 'Konfekt/FastFold'
 Plug 'preservim/nerdtree'
+Plug 'posva/vim-vue'
+Plug 'junegunn/fzf'               " requires fzf installed
+Plug 'mileszs/ack.vim'            " requires ack installed
 call plug#end()
 
 colorscheme moonshine
@@ -54,8 +57,8 @@ set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
 set undofile                      " Create undo file on editing
 
 " UNCOMMENT TO USE
-"set tabstop=2                    " Global tab width.
-"set shiftwidth=2                 " And again, related.
+set tabstop=2                    " Global tab width.
+set shiftwidth=2                 " And again, related.
 set expandtab                     " Use spaces instead of tabs
 "set colorcolumn=120              " Draw margin at line 120
 
@@ -163,6 +166,10 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['python']  " :help syntastic-checkers
 
 
+nnoremap <F3> :NERDTreeToggle<CR>
+nnoremap <F2> :FZF<CR>
 
 " HELP SECTION
 " set ai! to toggle autoindent, useful when pasting from clipboard
+" :FZF opens interactive window
+" :Ack text searches for text in files under current working directory (see :pwd, :cd %:p:h and :lcd %:p:h)
