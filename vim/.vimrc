@@ -1,5 +1,5 @@
 " Hello.
-" Last change:  2020 Nov 13
+" Last change:  2020 Nov 16
 
 set nocompatible                  " Use Vim settings, rather than Vi settings (must be first) 
 
@@ -14,6 +14,7 @@ Plug 'vim-syntastic/syntastic'     " TODO: for some reason it clashes with color
 Plug 'davidhalter/jedi-vim'
 Plug 'tmhedberg/SimpylFold'
 Plug 'Konfekt/FastFold'
+Plug 'preservim/nerdtree'
 call plug#end()
 
 colorscheme moonshine
