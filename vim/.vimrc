@@ -168,3 +168,18 @@ nnoremap <F2> :FZF<CR>
 " set ai! to toggle autoindent, useful when pasting from clipboard
 " :FZF opens interactive window
 " :Ack text searches for text in files under current working directory (see :pwd, :cd %:p:h and :lcd %:p:h)
+" :verbose set list? to check in which file the 'list' variable was set and what is it's value
+" :set to see all defined variables
+" :set list&  to reset list variable to default value
+" :e some/directory to list directory contents
+"   i cycle between listings
+"   s to cycle sorting
+"   r to reverse sort order
+"   gh to hide/unhide dotfiles
+"   x view file with associated viewer
+"   d make directory
+"   D delete file/directory
+"   R rename file/directory
+"   - go up a directory
+" vim ftp://hostname/path/to/file opens remote file in local vim
+" gf goto file under cursor, useful for opening imports
