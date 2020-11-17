@@ -5,6 +5,7 @@ set nocompatible                  " Use Vim settings, rather than Vi settings (m
 
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
+Plug 'airblade/vim-rooter'
 Plug 'pearofducks/ansible-vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'flazz/vim-colorschemes'
