@@ -1,5 +1,5 @@
 " Hello.
-" Last change:  2020 Nov 16
+" Last change:  2020 Nov 17
 
 set nocompatible                  " Use Vim settings, rather than Vi settings (must be first) 
 
@@ -8,9 +8,8 @@ Plug 'tpope/vim-sensible'
 Plug 'pearofducks/ansible-vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'flazz/vim-colorschemes'
-"Plug 'Chiel92/vim-autoformat'     " requires formatters installed and pynvim in neovim
-Plug 'vim-syntastic/syntastic'     " TODO: for some reason it clashes with colorschemes
-"Plug 'nvie/vim-flake8'  " use with F7
+Plug 'vim-syntastic/syntastic'
+Plug 'nvie/vim-flake8'  " use with F7
 Plug 'davidhalter/jedi-vim'
 Plug 'tmhedberg/SimpylFold'
 Plug 'Konfekt/FastFold'
@@ -138,11 +137,6 @@ au BufNewFile,BufRead *.py           " set formatting for python code
     \ set expandtab
     \ set autoindent
     \ set fileformat=unix
-
-au BufNewFile,BufRead *.js, *.html, *.css " set formatting for frontend code
-    \ set tabstop=2
-    \ set softtabstop=2
-    \ set shiftwidth=2
 
 "python with virtualenv support
 "py3 << EOF
