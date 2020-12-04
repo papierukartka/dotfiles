@@ -1,23 +1,27 @@
 " Hello.
-" Last change:  2020 Nov 17
+" Last change:  2020 Dec 04
 
 set nocompatible                  " Use Vim settings, rather than Vi settings (must be first) 
 
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'airblade/vim-rooter'
-Plug 'pearofducks/ansible-vim'
-Plug 'nathanaelkane/vim-indent-guides'
+"Plug 'pearofducks/ansible-vim'
+"Plug 'nathanaelkane/vim-indent-guides'
 Plug 'flazz/vim-colorschemes'
-Plug 'vim-syntastic/syntastic'
-Plug 'nvie/vim-flake8'  " use with F7
-Plug 'davidhalter/jedi-vim'
-Plug 'tmhedberg/SimpylFold'
-Plug 'Konfekt/FastFold'
+"Plug 'vim-syntastic/syntastic'
+"Plug 'nvie/vim-flake8'  " use with F7
+"Plug 'davidhalter/jedi-vim'
+"Plug 'tmhedberg/SimpylFold'
+"Plug 'Konfekt/FastFold'
 Plug 'preservim/nerdtree'
 Plug 'posva/vim-vue'
 Plug 'junegunn/fzf'               " requires fzf installed
 Plug 'mileszs/ack.vim'            " requires ack installed
+Plug 'pedrohdz/vim-yaml-folds'
+Plug 'tpope/vim-fugitive'
+Plug 'sheerun/vim-polyglot'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 colorscheme moonshine
@@ -151,7 +155,7 @@ au BufNewFile,BufRead *.py           " set formatting for python code
 
 " vim-syntastic options, edit after reading :help syntastic
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
@@ -160,6 +164,8 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['python']  " :help syntastic-checkers
 
+
+let g:ansible_unindent_after_newline = 1
 
 nnoremap <F3> :NERDTreeToggle<CR>
 nnoremap <F2> :FZF<CR>
@@ -183,3 +189,15 @@ nnoremap <F2> :FZF<CR>
 "   - go up a directory
 " vim ftp://hostname/path/to/file opens remote file in local vim
 " gf goto file under cursor, useful for opening imports
+" ---
+" Commenting:
+" specified lines:
+" :66,70s/^/#
+" :66,70s/^#/
+" visual block mode:
+" Ctrl + v  # mark lines
+" Shift + i # get into insert mode
+" type #
+" type Esc
+" --
+" https://freshman.tech/vim-javascript/
