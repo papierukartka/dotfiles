@@ -164,6 +164,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['python']  " :help syntastic-checkers
 
+let g:coc_disable_startup_warning = 1
 
 let g:ansible_unindent_after_newline = 1
 
