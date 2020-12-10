@@ -7,7 +7,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'airblade/vim-rooter'
 "Plug 'pearofducks/ansible-vim'
-"Plug 'nathanaelkane/vim-indent-guides'
+Plug 'nathanaelkane/vim-indent-guides'
 Plug 'flazz/vim-colorschemes'
 "Plug 'vim-syntastic/syntastic'
 "Plug 'nvie/vim-flake8'  " use with F7
@@ -60,9 +60,8 @@ set nowritebackup                 " And again.
 set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
 set undofile                      " Create undo file on editing
 
-" UNCOMMENT TO USE
-set tabstop=2                    " Global tab width.
-set shiftwidth=2                 " And again, related.
+set tabstop=2                     " Global tab width.
+set shiftwidth=2                  " And again, related.
 set expandtab                     " Use spaces instead of tabs
 "set colorcolumn=120              " Draw margin at line 120
 
@@ -84,23 +83,6 @@ map <leader>tp :tabprevious<cr>
 map <leader>tf :tabfirst<cr>
 map <leader>tl :tablast<cr>
 map <leader>tm :tabmove
-
-" Uncomment to use Jamis Buck's file opening plugin
-"map <Leader>t :FuzzyFinderTextMate<Enter>
-
-" Controversial...swap colon and semicolon for easier commands
-"nnoremap ; :
-"nnoremap : ;
-
-"vnoremap ; :
-"vnoremap : ;
-
-" Automatic fold settings for specific files. Uncomment to use.
-" autocmd FileType ruby setlocal foldmethod=syntax
-" autocmd FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2
-
-" For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
-autocmd BufNewFile,BufRead *_spec.rb compiler rspec
 
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
@@ -132,7 +114,6 @@ let g:SimpylFold_docstring_preview=1 " docstrings for folded code
 
 " plugin for separate file per extension https://vim.fandom.com/wiki/Keep_your_vimrc_file_clean
 " recommended indent plugin Plugin 'vim-scripts/indentpython.vim'
-" recommended plugin Bundle 'Valloric/YouCompleteMe'
 set encoding=utf-8
 au BufNewFile,BufRead *.py           " set formatting for python code
     \ set tabstop=4
@@ -155,7 +136,7 @@ au BufNewFile,BufRead *.py           " set formatting for python code
 
 " vim-syntastic options, edit after reading :help syntastic
 set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
@@ -202,3 +183,16 @@ nnoremap <F2> :FZF<CR>
 " type Esc
 " --
 " https://freshman.tech/vim-javascript/
+"
+" Automatic fold settings for specific files. Uncomment to use.
+" autocmd FileType ruby setlocal foldmethod=syntax
+" autocmd FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2
+" For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
+" autocmd BufNewFile,BufRead *_spec.rb compiler rspec
+"
+" Controversial...swap colon and semicolon for easier commands
+"nnoremap ; :
+"nnoremap : ;
+
+"vnoremap ; :
+"vnoremap : ;
