@@ -18,6 +18,7 @@ Plug 'preservim/nerdtree'
 Plug 'posva/vim-vue'
 Plug 'junegunn/fzf'               " requires fzf installed
 Plug 'mileszs/ack.vim'            " requires ack installed
+Plug 'vim-airline/vim-airline'
 call plug#end()
 
 colorscheme moonshine
