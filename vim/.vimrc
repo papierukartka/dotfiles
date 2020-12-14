@@ -73,6 +73,12 @@ nnoremap <F5> :set list!<CR>
 set laststatus=2                  " Show the status line all the time
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
+set statusline+=%{FugitiveStatusline()}
+
+set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
 
 " Tab mappings.
 map <leader>tt :tabnew<cr>
@@ -136,10 +142,6 @@ au BufNewFile,BufRead *.py           " set formatting for python code
 "EOF
 
 " vim-syntastic options, edit after reading :help syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
