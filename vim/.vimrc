@@ -12,14 +12,15 @@ Plug 'flazz/vim-colorschemes'
 "Plug 'vim-syntastic/syntastic'
 "Plug 'nvie/vim-flake8'  " use with F7
 "Plug 'davidhalter/jedi-vim'
-"Plug 'tmhedberg/SimpylFold'
+Plug 'tmhedberg/SimpylFold'       " folding plugin for Python
 "Plug 'Konfekt/FastFold'
 Plug 'preservim/nerdtree'
-Plug 'posva/vim-vue'
+Plug 'posva/vim-vue'              " adds vue as a recognizable filetype
 Plug 'junegunn/fzf'               " requires fzf installed
 Plug 'mileszs/ack.vim'            " requires ack installed
 Plug 'pedrohdz/vim-yaml-folds'
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'     " display git diff in sign column
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
