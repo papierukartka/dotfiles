@@ -23,6 +23,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'     " display git diff in sign column
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 call plug#end()
 
 colorscheme moonshine
@@ -79,6 +80,7 @@ set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+set updatetime=500                " delay for gitgutter and creating swap files
 
 " Tab mappings.
 map <leader>tt :tabnew<cr>
@@ -200,3 +202,6 @@ nnoremap <F2> :FZF<CR>
 
 "vnoremap ; :
 "vnoremap : ;
+
+" let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+" echo 'set editing-mode vi' > ~/.inputrc to enable vim keybindings in the shell
