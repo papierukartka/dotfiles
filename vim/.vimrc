@@ -134,6 +134,14 @@ au BufNewFile,BufRead *.py           " set formatting for python code
     \ set fileformat=unix
 
 autocmd FileType vue setlocal foldmethod=syntax   " folding vue.js code
+
+" TODO javascript/cypress folding
+"au BufNewFile,BufRead *.js setlocal foldmethod=indent foldcolumn=1 foldlevelstart=99
+set foldmethod=syntax " indetn's also cool
+set foldcolumn=1 
+set foldlevelstart=99
+"let javaScript_fold=1
+
 "python with virtualenv support
 "py3 << EOF
 "import os
