@@ -1,24 +1,29 @@
 " Hello.
-" Last change:  2020 Nov 17
+" Last change:  2020 Dec 04
 
 set nocompatible                  " Use Vim settings, rather than Vi settings (must be first) 
 
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'airblade/vim-rooter'
-Plug 'pearofducks/ansible-vim'
+"Plug 'pearofducks/ansible-vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'flazz/vim-colorschemes'
-Plug 'vim-syntastic/syntastic'
-Plug 'nvie/vim-flake8'  " use with F7
-Plug 'davidhalter/jedi-vim'
-Plug 'tmhedberg/SimpylFold'
-Plug 'Konfekt/FastFold'
+"Plug 'vim-syntastic/syntastic'
+"Plug 'nvie/vim-flake8'  " use with F7
+"Plug 'davidhalter/jedi-vim'
+Plug 'tmhedberg/SimpylFold'       " folding plugin for Python
+"Plug 'Konfekt/FastFold'
 Plug 'preservim/nerdtree'
-Plug 'posva/vim-vue'
+Plug 'posva/vim-vue'              " adds vue as a recognizable filetype
 Plug 'junegunn/fzf'               " requires fzf installed
 Plug 'mileszs/ack.vim'            " requires ack installed
 Plug 'vim-airline/vim-airline'
+Plug 'pedrohdz/vim-yaml-folds'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'     " display git diff in sign column
+Plug 'sheerun/vim-polyglot'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 colorscheme moonshine
@@ -57,9 +62,8 @@ set nowritebackup                 " And again.
 set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
 set undofile                      " Create undo file on editing
 
-" UNCOMMENT TO USE
-set tabstop=2                    " Global tab width.
-set shiftwidth=2                 " And again, related.
+set tabstop=2                     " Global tab width.
+set shiftwidth=2                  " And again, related.
 set expandtab                     " Use spaces instead of tabs
 "set colorcolumn=120              " Draw margin at line 120
 
@@ -70,6 +74,13 @@ nnoremap <F5> :set list!<CR>
 set laststatus=2                  " Show the status line all the time
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
+set statusline+=%{FugitiveStatusline()}
+
+set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+set updatetime=500                " delay for gitgutter and creating swap files
 
 " Tab mappings.
 map <leader>tt :tabnew<cr>
@@ -81,23 +92,6 @@ map <leader>tp :tabprevious<cr>
 map <leader>tf :tabfirst<cr>
 map <leader>tl :tablast<cr>
 map <leader>tm :tabmove
-
-" Uncomment to use Jamis Buck's file opening plugin
-"map <Leader>t :FuzzyFinderTextMate<Enter>
-
-" Controversial...swap colon and semicolon for easier commands
-"nnoremap ; :
-"nnoremap : ;
-
-"vnoremap ; :
-"vnoremap : ;
-
-" Automatic fold settings for specific files. Uncomment to use.
-" autocmd FileType ruby setlocal foldmethod=syntax
-" autocmd FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2
-
-" For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
-autocmd BufNewFile,BufRead *_spec.rb compiler rspec
 
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
@@ -129,7 +123,6 @@ let g:SimpylFold_docstring_preview=1 " docstrings for folded code
 
 " plugin for separate file per extension https://vim.fandom.com/wiki/Keep_your_vimrc_file_clean
 " recommended indent plugin Plugin 'vim-scripts/indentpython.vim'
-" recommended plugin Bundle 'Valloric/YouCompleteMe'
 set encoding=utf-8
 au BufNewFile,BufRead *.py           " set formatting for python code
     \ set tabstop=4
@@ -139,6 +132,15 @@ au BufNewFile,BufRead *.py           " set formatting for python code
     \ set expandtab
     \ set autoindent
     \ set fileformat=unix
+
+autocmd FileType vue setlocal foldmethod=syntax   " folding vue.js code
+
+" TODO javascript/cypress folding
+"au BufNewFile,BufRead *.js setlocal foldmethod=indent foldcolumn=1 foldlevelstart=99
+set foldmethod=syntax " indetn's also cool
+set foldcolumn=1 
+set foldlevelstart=99
+"let javaScript_fold=1
 
 "python with virtualenv support
 "py3 << EOF
@@ -151,16 +153,15 @@ au BufNewFile,BufRead *.py           " set formatting for python code
 "EOF
 
 " vim-syntastic options, edit after reading :help syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['python']  " :help syntastic-checkers
 
+let g:coc_disable_startup_warning = 1
+
+let g:ansible_unindent_after_newline = 1
 
 nnoremap <F3> :NERDTreeToggle<CR>
 nnoremap <F2> :FZF<CR>
@@ -184,3 +185,31 @@ nnoremap <F2> :FZF<CR>
 "   - go up a directory
 " vim ftp://hostname/path/to/file opens remote file in local vim
 " gf goto file under cursor, useful for opening imports
+" ---
+" Commenting:
+" specified lines:
+" :66,70s/^/#
+" :66,70s/^#/
+" visual block mode:
+" Ctrl + v  # mark lines
+" Shift + i # get into insert mode
+" type #
+" type Esc
+" --
+" https://freshman.tech/vim-javascript/
+"
+" Automatic fold settings for specific files. Uncomment to use.
+" autocmd FileType ruby setlocal foldmethod=syntax
+" autocmd FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2
+" For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
+" autocmd BufNewFile,BufRead *_spec.rb compiler rspec
+"
+" Controversial...swap colon and semicolon for easier commands
+"nnoremap ; :
+"nnoremap : ;
+
+"vnoremap ; :
+"vnoremap : ;
+
+" let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+" echo 'set editing-mode vi' > ~/.inputrc to enable vim keybindings in the shell
