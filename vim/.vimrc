@@ -22,7 +22,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'pedrohdz/vim-yaml-folds'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'     " display git diff in sign column
-Plug 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot', { 'tag': 'v4.17.0' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
