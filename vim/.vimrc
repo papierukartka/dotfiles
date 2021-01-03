@@ -24,6 +24,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'     " display git diff in sign column
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 colorscheme moonshine
