@@ -1,7 +1,7 @@
 " Hello.
-" Last change:  2020 Dec 04
+" Last change:  2021 Jan 10
 
-set nocompatible                  " Use Vim settings, rather than Vi settings (must be first) 
+set nocompatible                  " Use Vim settings, rather than Vi settings (must be first)
 
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
@@ -12,10 +12,11 @@ Plug 'flazz/vim-colorschemes'
 "Plug 'vim-syntastic/syntastic'
 "Plug 'nvie/vim-flake8'  " use with F7
 "Plug 'davidhalter/jedi-vim'
-Plug 'tmhedberg/SimpylFold'       " folding plugin for Python
-"Plug 'Konfekt/FastFold'
+"Plug 'tmhedberg/SimpylFold'      " folding plugin for Python
+"Plug 'msuperdock/vim-foldout'
+Plug 'Konfekt/FastFold'           " entering a string doesn't open all closed folds
 Plug 'preservim/nerdtree'
-Plug 'posva/vim-vue'              " adds vue as a recognizable filetype
+"Plug 'posva/vim-vue'
 Plug 'junegunn/fzf'               " requires fzf installed
 Plug 'mileszs/ack.vim'            " requires ack installed
 Plug 'vim-airline/vim-airline'
@@ -27,7 +28,16 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
-colorscheme moonshine
+
+" Convenient command to see the difference between the current buffer and the
+" file it was loaded from, thus the changes you made.
+" Only define it when not defined already.
+if !exists(":DiffOrig")
+  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
+    \ | wincmd p | diffthis
+endif
+
+set encoding=utf-8                " Ensure utf-8 file encoding.
 
 set showcmd                       " Display incomplete commands.
 
@@ -44,7 +54,6 @@ set ignorecase                    " Case-insensitive searching.
 set smartcase                     " But case-sensitive if expression contains a capital letter.
 
 set number                        " Show line numbers.
-"set relativenumber               " Relavite line numbering (available when 'set number' active)
 
 set ruler                         " Show cursor position.
 
@@ -61,16 +70,18 @@ set visualbell                    " No beeping.
 set nobackup                      " Don't make a backup before overwriting a file.
 set nowritebackup                 " And again.
 set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
+
 set undofile                      " Create undo file on editing
 
 set tabstop=2                     " Global tab width.
 set shiftwidth=2                  " And again, related.
 set expandtab                     " Use spaces instead of tabs
-"set colorcolumn=120              " Draw margin at line 120
+
+set colorcolumn=120              " Draw margin at line 120
+:hi ColorColumn ctermbg=lightgrey guibg=lightgrey
 
 " Show tabs, newline characters, etc
 :set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:< " ,space:␣
-nnoremap <F5> :set list!<CR>
 
 set laststatus=2                  " Show the status line all the time
 " Useful status information at bottom of screen
@@ -83,29 +94,12 @@ set statusline+=%*
 
 set updatetime=500                " delay for gitgutter and creating swap files
 
-" Tab mappings.
-map <leader>tt :tabnew<cr>
-map <leader>te :tabedit
-map <leader>tc :tabclose<cr>
-map <leader>to :tabonly<cr>
-map <leader>tn :tabnext<cr>
-map <leader>tp :tabprevious<cr>
-map <leader>tf :tabfirst<cr>
-map <leader>tl :tablast<cr>
-map <leader>tm :tabmove
-
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
   set mouse=a
 endif
 
-" Convenient command to see the difference between the current buffer and the
-" file it was loaded from, thus the changes you made.
-" Only define it when not defined already.
-if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
-endif
+
 
 " set custom indent colors & map F4 to show indents
 let g:indent_guides_auto_colors = 0
@@ -117,41 +111,17 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 "hi IndentGuidesOdd  guibg=red   ctermbg=3
 "hi IndentGuidesEven guibg=green ctermbg=4
 
-" Enable folding with the spacebar
-nnoremap <space> za
-
 let g:SimpylFold_docstring_preview=1 " docstrings for folded code
 
-" plugin for separate file per extension https://vim.fandom.com/wiki/Keep_your_vimrc_file_clean
 " recommended indent plugin Plugin 'vim-scripts/indentpython.vim'
-set encoding=utf-8
-au BufNewFile,BufRead *.py           " set formatting for python code
-    \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set autoindent
-    \ set fileformat=unix
-
-autocmd FileType vue setlocal foldmethod=syntax   " folding vue.js code
 
 " TODO javascript/cypress folding
 "au BufNewFile,BufRead *.js setlocal foldmethod=indent foldcolumn=1 foldlevelstart=99
 set foldmethod=syntax " indetn's also cool
-set foldcolumn=1 
+set foldcolumn=1
 set foldlevelstart=99
 "let javaScript_fold=1
-
-"python with virtualenv support
-"py3 << EOF
-"import os
-"import sys
-"if 'VIRTUAL_ENV' in os.environ:
-"  project_base_dir = os.environ['VIRTUAL_ENV']
-"  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-"  execfile(activate_this, dict(__file__=activate_this))
-"EOF
+let g:javaScript_fold = 1     " from Konfekt/FastFold
 
 " vim-syntastic options, edit after reading :help syntastic
 let g:syntastic_always_populate_loc_list = 1
@@ -164,8 +134,28 @@ let g:coc_disable_startup_warning = 1
 
 let g:ansible_unindent_after_newline = 1
 
-nnoremap <F3> :NERDTreeToggle<CR>
-nnoremap <F2> :FZF<CR>
+colorscheme moonshine             " Theme from flazz/vim-colorschemes
+
+" Key mappings
+"   map = normal, visual, select
+"   noremap  = normal, visual, select non-recursive
+"   nmap = normal
+"   vmap = visual
+noremap <F2> :FZF<CR>
+noremap <F3> :NERDTreeToggle<CR>
+noremap <F5> :set list!<CR>
+noremap <space> za
+
+noremap <leader>tt :tabnew<cr>
+noremap <leader>te :tabedit
+noremap <leader>tc :tabclose<cr>
+noremap <leader>to :tabonly<cr>
+noremap <leader>tn :tabnext<cr>
+noremap <leader>tp :tabprevious<cr>
+noremap <leader>tf :tabfirst<cr>
+noremap <leader>tl :tablast<cr>
+noremap <leader>tm :tabmove
+
 
 " HELP SECTION
 " set ai! to toggle autoindent, useful when pasting from clipboard
@@ -206,6 +196,7 @@ nnoremap <F2> :FZF<CR>
 " autocmd BufNewFile,BufRead *_spec.rb compiler rspec
 "
 " Controversial...swap colon and semicolon for easier commands
+" https://www.reddit.com/r/vim/comments/2x52gt/argument_against_nnoremap/
 "nnoremap ; :
 "nnoremap : ;
 
