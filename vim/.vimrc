@@ -26,8 +26,10 @@ Plug 'airblade/vim-gitgutter'     " display git diff in sign column
 Plug 'sheerun/vim-polyglot', { 'tag': 'v4.17.0' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'svermeulen/vim-cutlass'
+Plug 'svermeulen/vim-cutlass'     " d for delete, m for cut, no paste buffer affected
+Plug 'svermeulen/vim-yoink'       " history of yanks when pasting with c-n c-p
 call plug#end()
+
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
@@ -51,7 +53,6 @@ set wildmenu                      " Enhanced command line completion.
 set wildmode=list:longest         " Complete files like a shell.
 
 set ignorecase                    " Case-insensitive searching.
-set smartcase                     " But case-sensitive if expression contains a capital letter.
 
 set number                        " Show line numbers.
 
@@ -162,6 +163,14 @@ xnoremap m d
 
 nnoremap mm dd
 nnoremap M D
+
+" vim-yoink
+let g:yoinkIncludeDeleteOperations=1
+nmap <c-n> <plug>(YoinkPostPasteSwapBack)
+nmap <c-p> <plug>(YoinkPostPasteSwapForward)
+
+nmap p <plug>(YoinkPaste_p)
+nmap P <plug>(YoinkPaste_P)
 
 " HELP SECTION
 " set ai! to toggle autoindent, useful when pasting from clipboard
