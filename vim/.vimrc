@@ -26,8 +26,8 @@ Plug 'airblade/vim-gitgutter'     " display git diff in sign column
 Plug 'sheerun/vim-polyglot', { 'tag': 'v4.17.0' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'svermeulen/vim-cutlass'
 call plug#end()
-
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
@@ -156,6 +156,12 @@ noremap <leader>tf :tabfirst<cr>
 noremap <leader>tl :tablast<cr>
 noremap <leader>tm :tabmove
 
+" vim-cutlass
+nnoremap m d
+xnoremap m d
+
+nnoremap mm dd
+nnoremap M D
 
 " HELP SECTION
 " set ai! to toggle autoindent, useful when pasting from clipboard
