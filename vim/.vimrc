@@ -28,6 +28,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'svermeulen/vim-cutlass'     " d for delete, m for cut, no paste buffer affected
 Plug 'svermeulen/vim-yoink'       " history of yanks when pasting with c-n c-p
+Plug 'ludovicchabant/vim-gutentags' " does ctags -R . on changes only, requires https://github.com/universal-ctags/ctags installed, create tags manually with ctags -R --exclude=frontend/node_modules --exclude=.git .
 call plug#end()
 
 
@@ -220,3 +221,10 @@ nmap P <plug>(YoinkPaste_P)
 
 " let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 " echo 'set editing-mode vi' > ~/.inputrc to enable vim keybindings in the shell
+" tags
+"   Ctrl+] with cursor on a method to jump to it's definition
+"   :tag methodName to jump to it's definition
+"   :tag a<tab> to list all tags starting with a
+"   :3tag methodName to jump to 3rd definition of the tag
+"   :tselect word or g] in normal mode - see tag definitions for a given word
+"   :tags to see stack of latest used tags, Ctrl+T or :pop to pop
