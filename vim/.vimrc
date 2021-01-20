@@ -12,7 +12,7 @@ Plug 'flazz/vim-colorschemes'
 "Plug 'vim-syntastic/syntastic'
 "Plug 'nvie/vim-flake8'  " use with F7
 "Plug 'davidhalter/jedi-vim'
-"Plug 'tmhedberg/SimpylFold'      " folding plugin for Python
+Plug 'tmhedberg/SimpylFold'      " folding plugin for Python
 "Plug 'msuperdock/vim-foldout'
 Plug 'Konfekt/FastFold'           " entering a string doesn't open all closed folds
 Plug 'preservim/nerdtree'
@@ -24,7 +24,7 @@ Plug 'pedrohdz/vim-yaml-folds'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'     " display git diff in sign column
 Plug 'sheerun/vim-polyglot', { 'tag': 'v4.17.0' }
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " :CocInstall coc-tsserver coc-json (with nodejs used)
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'svermeulen/vim-cutlass'     " d for delete, m for cut, no paste buffer affected
 Plug 'svermeulen/vim-yoink'       " history of yanks when pasting with c-n c-p
@@ -39,6 +39,8 @@ if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
     \ | wincmd p | diffthis
 endif
+
+let mapleader=","
 
 set encoding=utf-8                " Ensure utf-8 file encoding.
 
@@ -117,7 +119,6 @@ let g:SimpylFold_docstring_preview=1 " docstrings for folded code
 
 " recommended indent plugin Plugin 'vim-scripts/indentpython.vim'
 
-" TODO javascript/cypress folding
 "au BufNewFile,BufRead *.js setlocal foldmethod=indent foldcolumn=1 foldlevelstart=99
 set foldmethod=syntax " indetn's also cool
 set foldcolumn=1
@@ -159,11 +160,11 @@ noremap <leader>tl :tablast<cr>
 noremap <leader>tm :tabmove
 
 " vim-cutlass
-nnoremap m d
-xnoremap m d
+nnoremap <leader>m d
+xnoremap <leader>m d
 
-nnoremap mm dd
-nnoremap M D
+nnoremap <leader>mm dd
+nnoremap <leader>M D
 
 " vim-yoink
 let g:yoinkIncludeDeleteOperations=1
@@ -228,3 +229,10 @@ nmap P <plug>(YoinkPaste_P)
 "   :3tag methodName to jump to 3rd definition of the tag
 "   :tselect word or g] in normal mode - see tag definitions for a given word
 "   :tags to see stack of latest used tags, Ctrl+T or :pop to pop
+"
+" marks
+" lowercase characters for marks within a file, uppercase for global marks
+" mV to save global mark under V, any previous mark under V is deleted
+" mv to save local mark under v, any previous mark (within the file) is deleted
+" 'V anywhere (but in vim) to open the file under specified mark
+" 'v with particular file opened to move cursor under mark
