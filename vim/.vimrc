@@ -16,7 +16,7 @@ Plug 'tmhedberg/SimpylFold'      " folding plugin for Python
 "Plug 'msuperdock/vim-foldout'
 Plug 'Konfekt/FastFold'           " entering a string doesn't open all closed folds
 Plug 'preservim/nerdtree'
-"Plug 'posva/vim-vue'
+Plug 'posva/vim-vue'
 Plug 'junegunn/fzf'               " requires fzf installed
 Plug 'mileszs/ack.vim'            " requires ack installed
 Plug 'vim-airline/vim-airline'
@@ -160,11 +160,11 @@ noremap <leader>tl :tablast<cr>
 noremap <leader>tm :tabmove
 
 " vim-cutlass
-nnoremap <leader>m d
-xnoremap <leader>m d
+nnoremap m d
+xnoremap m d
 
-nnoremap <leader>mm dd
-nnoremap <leader>M D
+nnoremap mm dd
+nnoremap M D
 
 " vim-yoink
 let g:yoinkIncludeDeleteOperations=1
