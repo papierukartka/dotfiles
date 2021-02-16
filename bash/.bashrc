@@ -28,7 +28,7 @@ shopt -s checkwinsize
 #shopt -s globstar
 
 # make less more friendly for non-text input files, see lesspipe(1)
-#[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
@@ -82,6 +82,10 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+if [ -f ~/.bash_aliases_project_specific ]; then
+  . ~/.bash_aliases_project_specific
+fi
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -94,13 +98,20 @@ if ! shopt -oq posix; then
 fi
 
 # exports
-export PATH=$HOME/.pyenv/bin:$HOME/.local/bin:$PATH
+
+# if there's another to read, read it
+if [ -f ~/.bashrc_project_specific ]; then
+    . ~/.bashrc_project_specific
+fi
+
+export PATH=$PATH\
+:$HOME/.pyenv/bin\
+:$HOME/.local/bin
 
 # pyenv
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 export WORKON_HOME=~/Envs
-source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 
 # docker
 export DOCKER_BUILDKIT=1
@@ -109,8 +120,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# groovysh editor
 export EDITOR="vim"
+export GIT_EDITOR=vim # todo move to .gitconfig core.editor
 
 # autojump
 . /usr/share/autojump/autojump.sh
