@@ -40,6 +40,9 @@ alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
 
+# less - ignore case upon search, unless uppercase letter in search pattern
+alias less='less -i'
+
 ## merge a PR into master, locally, & run it
 cpr(){
   git checkout "$1"
@@ -75,6 +78,9 @@ cmaster(){
   git pull
 }
 
+nrm(){
+  sudo rm -rf "./$@/node_modules"
+}
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
