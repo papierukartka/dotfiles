@@ -28,11 +28,15 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'} " :CocInstall coc-tsserver coc-j
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'svermeulen/vim-cutlass'     " d for delete, m for cut, no paste buffer affected
 Plug 'svermeulen/vim-yoink'       " history of yanks when pasting with c-n c-p
-Plug 'ludovicchabant/vim-gutentags' " does ctags -R . on changes only, requires https://github.com/universal-ctags/ctags installed, create tags manually with ctags -R --exclude=frontend/node_modules --exclude=.git .
 call plug#end()
 
 " use ag for fzf, show hidden files but exclude .git
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
