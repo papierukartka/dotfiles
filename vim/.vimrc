@@ -28,6 +28,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'} " :CocInstall coc-tsserver coc-j
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'svermeulen/vim-cutlass'     " d for delete, m for cut, no paste buffer affected
 Plug 'svermeulen/vim-yoink'       " history of yanks when pasting with c-n c-p
+Plug 'tpope/vim-surround'
 call plug#end()
 
 " use ag for fzf, show hidden files but exclude .git
