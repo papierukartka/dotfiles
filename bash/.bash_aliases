@@ -17,6 +17,9 @@ ga() {
 gc() {
   git commit -m "$@"
 }
+grh() {
+  git reset HEAD "$@"
+}
 gss() {
   git stash save $@
 }
