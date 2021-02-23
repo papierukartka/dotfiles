@@ -236,3 +236,10 @@ nmap P <plug>(YoinkPaste_P)
 " mv to save local mark under v, any previous mark (within the file) is deleted
 " 'V anywhere (but in vim) to open the file under specified mark
 " 'v with particular file opened to move cursor under mark
+
+" Help
+" F1, :h, :help - open help window
+" Ctrl+] - open hyperlink
+" Ctrl+t - move back from hyperlink
+" :h <topic> - jump to a topic
+" :set wildmenu - autocomplete when typing help topics with TAB
