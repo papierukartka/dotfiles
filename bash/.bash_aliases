@@ -11,6 +11,9 @@ alias gp='git pull'
 alias gsl='git stash list'
 alias gd='git diff'
 alias gdc='git diff --cached'
+ga() {
+  git add $@
+}
 gc() {
   git commit -m "$@"
 }
