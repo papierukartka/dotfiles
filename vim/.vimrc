@@ -17,7 +17,7 @@ Plug 'tmhedberg/SimpylFold'      " folding plugin for Python
 Plug 'Konfekt/FastFold'           " entering a string doesn't open all closed folds
 Plug 'preservim/nerdtree'
 Plug 'posva/vim-vue'
-Plug 'junegunn/fzf'               " requires fzf installed
+Plug 'junegunn/fzf'               " requires fzf (and ag, see below) installed
 Plug 'mileszs/ack.vim'            " requires ack installed
 Plug 'vim-airline/vim-airline'
 Plug 'pedrohdz/vim-yaml-folds'
@@ -31,6 +31,8 @@ Plug 'svermeulen/vim-yoink'       " history of yanks when pasting with c-n c-p
 Plug 'ludovicchabant/vim-gutentags' " does ctags -R . on changes only, requires https://github.com/universal-ctags/ctags installed, create tags manually with ctags -R --exclude=frontend/node_modules --exclude=.git .
 call plug#end()
 
+" use ag for fzf, show hidden files but exclude .git
+let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
