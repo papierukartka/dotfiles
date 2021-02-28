@@ -1,7 +1,14 @@
 [user]
-	name = Ś, Krzysztof
-	email = papierukartka@gmail.com
+	name = Krzysztof S
+	email = sliwkr@posteo.net
 [color]
 	ui = true
 [push]
 	default = matching
+[sendemail]
+	smtpEncryption = tls
+	smtpServerPort = 587
+	smtpServer = posteo.de
+	smtpUser = sliwkr@posteo.net
+[pull]
+	rebase = true
