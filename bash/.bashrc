@@ -113,6 +113,11 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 export WORKON_HOME=~/Envs
 
+# goenv
+export GOENV_ROOT="$HOME/.goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"
+eval "$(goenv init -)"
+
 # docker
 export DOCKER_BUILDKIT=1
 
