@@ -30,6 +30,12 @@ gsd() {
   git stash drop $@
 }
 
+alias off='systemctl poweroff'
+alias logout='i3-msg exit'
+alias lock='i3lock -t -i ~/Pictures/screenlock.png'
+alias suspend='i3lock -t -i ~/Pictures/screenlock.png && systemctl suspend'
+alias restart='systemctl reboot'
+alias reboot='systemctl reboot'
 
 # docker
 alias dil='docker image list'
@@ -39,7 +45,9 @@ alias dcl='docker container list -a'
 alias dcd="docker-compose down"
 alias dcu="docker-compose up"
 alias dcub="docker-compose up --build"
-
+dip() {
+    docker container inspect $@ --format "{{ .NetworkSettings.Networks.bridge.IPAddress }}"
+}
 
 # ls
 alias ll='ls -l'
