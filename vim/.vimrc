@@ -35,6 +35,9 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 " Dim paragraphs above and below the current paragraph
 Plug 'junegunn/limelight.vim'
 
+" Distraction-free mode (vscode's zen mode)
+Plug 'junegunn/goyo.vim'
+
 call plug#end()
 
 " limelight - gray color of unfocused text
@@ -259,3 +262,5 @@ nmap P <plug>(YoinkPaste_P)
 " Ctrl+t - move back from hyperlink
 " :h <topic> - jump to a topic
 " :set wildmenu - autocomplete when typing help topics with TAB
+" :%!jq .  - format json
+" :%y+  - copy all file contents to clipboard
