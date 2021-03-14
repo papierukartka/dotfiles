@@ -32,7 +32,13 @@ Plug 'tpope/vim-surround'
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
+" Dim paragraphs above and below the current paragraph
+Plug 'junegunn/limelight.vim'
+
 call plug#end()
+
+" limelight - gray color of unfocused text
+let g:limelight_conceal_ctermfg = 240
 
 " use ag for fzf, show hidden files but exclude .git
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
