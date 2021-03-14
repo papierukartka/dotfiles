@@ -29,6 +29,9 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'svermeulen/vim-cutlass'     " d for delete, m for cut, no paste buffer affected
 Plug 'svermeulen/vim-yoink'       " history of yanks when pasting with c-n c-p
 Plug 'tpope/vim-surround'
+
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+
 call plug#end()
 
 " use ag for fzf, show hidden files but exclude .git
