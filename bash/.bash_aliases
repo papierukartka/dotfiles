@@ -127,3 +127,6 @@ alias monitor_off='xrandr --output HDMI1 --off'
 
 alias laptop_auto='xrandr --output LVDS1 --auto'
 alias laptop_off='xrandr --output LVDS1 --off'
+
+alias yt='youtube-dl --add-metadata -ic'
+alias yta='youtube-dl --add-metadata -xic'
