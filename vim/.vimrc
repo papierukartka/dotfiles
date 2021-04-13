@@ -42,6 +42,7 @@ call plug#end()
 
 " limelight - gray color of unfocused text
 let g:limelight_conceal_ctermfg = 240
+let g:limelight_conceal_guifg = '#777777'
 
 " use ag for fzf, show hidden files but exclude .git
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
